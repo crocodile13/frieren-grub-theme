@@ -30,16 +30,6 @@ Le script restaure une configuration GRUB propre.
 
 ---
 
-## 🔧 Fix icônes (optionnel)
-
-```bash
-sudo ./fix_grub_classes.sh
-```
-
-Utile si certaines entrées (Windows, distros, etc.) n'affichent pas la bonne icône.
-
----
-
 ## 🖥️ Résolutions supportées
 
 Le thème inclut plusieurs backgrounds :
@@ -73,17 +63,3 @@ Le script choisit automatiquement la meilleure option selon votre écran.
 
 Un thème **Plymouth** assorti (même univers visuel, mais design adapté au boot splash) arrivera prochainement.
 
----
-
-## 📁 Compatibilité
-
-Testé sur :
-- Arch Linux
-- Debian / Ubuntu
-- Fedora
-
-Fonctionne normalement sur toute distro utilisant GRUB.
-
----
-
-> *“La magie, c'est comprendre la nature.”*
