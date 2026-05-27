@@ -1,0 +1,98 @@
+# FRIEREN GRUB THEME v4.8 — Beyond Journey's End
+# Magic circle icons (56 px) + carved-stone runic progress bar
+# Résolution cible  : 1920×1080 (16:9)
+# Fallback 1280×720 : fonctionne — valeurs pixel choisies pour être raisonnables aux deux résolutions
+# ─────────────────────────────────────────────────────────────────────────────
+# IMPORTANT : ce qui NE scale PAS avec la résolution dans GRUB :
+#   • item_height, item_padding, item_spacing, icon_width, icon_height  (pixels absolus)
+#   • les polices .pf2  (taille fixe gravée)
+# Ce qui SCALE (valeurs en %) :
+#   • left / top / width / height des widgets
+#   • l'image de fond (redimensionnée pour remplir l'écran)
+# → En changeant de résolution seule la densité du contenu change,
+#   pas sa position dans l'image.
+# ─────────────────────────────────────────────────────────────────────────────
+
+title-text:    ""
+desktop-image: "background.png"
+desktop-color: "#0d0a1c"
+
+# ── Boot menu ──────────────────────────────────────────────────────────────
++ boot_menu {
+  left   = 74%
+  top    = 22%
+  width  = 20%
+  height = 67%
+
+  # Polices — freeserif-12 est un bon compromis 1080p/720p.
+  # À 720p les glyphes sont proportionnellement plus grands qu'à 1080p ;
+  # en restant sur une taille modeste on évite le débordement.
+  item_font             = "fonts/freeserif-12.pf2"
+  item_color            = "#b8a8d8"
+  selected_item_color   = "#ffe8c0"
+
+  # item_height en pixels : 44 au lieu de 52.
+  # À 1080p : 44 / 1080 = 4.1 % → raisonnable, menu aéré.
+  # À 720p  : 44 /  720 = 6.1 % → légèrement plus dense, mais reste lisible.
+  # (52 à 720p donnait 7.2 %, ce qui faisait sortir des entrées du cadre)
+  item_height           = 80
+  item_padding          = 6
+  item_spacing          = 3
+
+  selected_item_pixmap_style = "assets/select_*.png"
+
+  # Icônes : 48 px au lieu de 56.
+  # La différence de rendu entre 56 et 48 est imperceptible à 1080p
+  # et évite le débordement à 720p.
+  icon_width            = 64
+  icon_height           = 64
+  item_icon_space       = 10
+
+  scrollbar             = false
+}
+
+# ── Titre ──────────────────────────────────────────────────────────────────
+#+ label {
+#  top    = 3%
+#  left   = 60%
+#  width  = 36%
+#  height = 7%
+#  text   = "Frieren"
+#  font   = "fonts/freeserif-28.pf2"
+#  color  = "#d4b860"
+#  align  = "center"
+#}
+
+# ── Sous-titre ──────────────────────────────────────────────────────────────
+#+ label {
+#  top    = 10%
+#  left   = 60%
+#  width  = 36%
+#  height = 5%
+#  text   = "Beyond Journey's End"
+#  font   = "fonts/freeserif-12.pf2"
+#  color  = "#8870b8"
+#  align  = "center"
+#}
+
+# ── Barre de progression runique ───────────────────────────────────────────
+# id = __timeout__ → se vide au compte à rebours automatiquement.
+# width / left / top en % → cette barre SE POSITIONNE correctement
+# quelle que soit la résolution (les caps _w/_e sont étroits et le
+# centre _c est tuilé, donc la barre s'étire sans artefact).
+# height en % pour que la barre reste proportionnelle à l'écran.
++ progress_bar {
+  id           = "__timeout__"
+  top          = 19%
+  left         = 76%
+  width        = 16%
+  height       = 3%
+  show_text    = false
+
+  bar_style       = "assets/progress_*.png"
+  highlight_style = "assets/progress_hl_*.png"
+
+  fg_color     = "#e6c882"
+  bg_color     = "#3a384a"
+  border_color = "#1f1d2c"
+}

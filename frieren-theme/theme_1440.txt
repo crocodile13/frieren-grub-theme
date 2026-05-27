@@ -1,0 +1,48 @@
+# FRIEREN GRUB THEME v4.8 — Beyond Journey's End
+# Résolution cible : 2560×1440 (16:9)
+# Valeurs pixel = version 1080p × 1.33 (ratio 1440/1080)
+
+title-text:    ""
+desktop-image: "background.png"
+desktop-color: "#0d0a1c"
+
+# ── Boot menu ──────────────────────────────────────────────────────────────
++ boot_menu {
+  left   = 74%
+  top    = 22%
+  width  = 20%
+  height = 67%
+
+  item_font             = "fonts/freeserif-18.pf2"
+  item_color            = "#b8a8d8"
+  selected_item_color   = "#ffe8c0"
+
+  item_height           = 106   # 80 × 1.33
+  item_padding          = 8     # 6 × 1.33
+  item_spacing          = 4     # 3 × 1.33
+
+  selected_item_pixmap_style = "assets/select_*.png"
+
+  icon_width            = 85    # 64 × 1.33  (max source = 96px, ok)
+  icon_height           = 85
+  item_icon_space       = 13    # 10 × 1.33
+
+  scrollbar             = false
+}
+
+# ── Barre de progression runique ───────────────────────────────────────────
++ progress_bar {
+  id           = "__timeout__"
+  top          = 19%
+  left         = 76%
+  width        = 16%
+  height       = 3%
+  show_text    = false
+
+  bar_style       = "assets/progress_*.png"
+  highlight_style = "assets/progress_hl_*.png"
+
+  fg_color     = "#e6c882"
+  bg_color     = "#3a384a"
+  border_color = "#1f1d2c"
+}
